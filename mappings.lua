@@ -10,13 +10,27 @@ M.general = {
 -- more keybinds!
 M.custom = {
   n = {
-    ["<C-u>"] = { "<C-u>zz "},
-    ["<C-d>"] = { "<C-d>zz "},
+    ["<C-u>"] = { "<C-u>zz " },
+    ["<C-d>"] = { "<C-d>zz " },
+
     ["<leader>tr"] = { ":CompetiTest run <CR>", "Run testcases" },
     ["<leader>ta"] = { ":CompetiTest add_testcase <CR>", "Add testcases" },
     ["<leader>te"] = { ":CompetiTest edit_testcase <CR>", "Edit testcases" },
     ["<leader>td"] = { ":CompetiTest edit_testcase <CR>", "Delete testcases" },
     ["<leader>tg"] = { ":CompetiTest receive testcases <CR>", "Receive testcases" },
+
+    ["<leader>ca"] = {
+      function()
+        vim.lsp.buf.code_action()
+      end,
+      "Code action",
+    },
+    ["<leader>ra"] = {
+      function()
+        vim.lsp.buf.rename()
+      end,
+      "Rename",
+    },
   },
 }
 
